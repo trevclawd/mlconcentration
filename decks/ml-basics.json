@@ -1,0 +1,121 @@
+{
+  "cards": [
+    {
+      "id": "ml_basics_01",
+      "command": "Supervised Learning",
+      "syntax": "model.fit(X_train, y_train)",
+      "description": "Learning from labeled data to make predictions on new, unseen data",
+      "example": "model = LinearRegression(); model.fit(X, y)",
+      "category": "Learning Type",
+      "explanation": "Supervised learning uses labeled training data to learn a mapping from inputs to outputs. The algorithm learns from examples where the correct answer is known."
+    },
+    {
+      "id": "ml_basics_02",
+      "command": "Unsupervised Learning",
+      "syntax": "model.fit(X)",
+      "description": "Finding patterns in unlabeled data without predefined outputs",
+      "example": "kmeans = KMeans(n_clusters=3); kmeans.fit(X)",
+      "category": "Learning Type",
+      "explanation": "Unsupervised learning discovers hidden patterns in data without labeled examples. Common tasks include clustering and dimensionality reduction."
+    },
+    {
+      "id": "ml_basics_03",
+      "command": "Reinforcement Learning",
+      "syntax": "agent.learn(environment)",
+      "description": "Learning through interaction with an environment using rewards and penalties",
+      "example": "agent.train(env, episodes=1000)",
+      "category": "Learning Type",
+      "explanation": "Reinforcement learning trains agents to make decisions by rewarding good actions and penalizing bad ones. Used in games, robotics, and optimization."
+    },
+    {
+      "id": "ml_basics_04",
+      "command": "Train/Test Split",
+      "syntax": "X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)",
+      "description": "Dividing data into training and testing sets to evaluate model performance",
+      "example": "X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)",
+      "category": "Data",
+      "explanation": "Train/test split helps evaluate how well a model generalizes to unseen data. Typically 80% for training and 20% for testing."
+    },
+    {
+      "id": "ml_basics_05",
+      "command": "Cross-Validation",
+      "syntax": "scores = cross_val_score(model, X, y, cv=5)",
+      "description": "Technique to assess model performance using multiple train/test splits",
+      "example": "cv_scores = cross_val_score(model, X, y, cv=5)",
+      "category": "Evaluation",
+      "explanation": "Cross-validation divides data into k folds, training on k-1 and testing on 1, rotating through all folds. Provides more reliable performance estimates."
+    },
+    {
+      "id": "ml_basics_06",
+      "command": "Feature Engineering",
+      "syntax": "X_transformed = preprocessor.fit_transform(X)",
+      "description": "Creating new features from raw data to improve model performance",
+      "example": "X['age_group'] = pd.cut(X['age'], bins=[0,18,35,50,100])",
+      "category": "Data",
+      "explanation": "Feature engineering transforms raw data into features that better represent the underlying problem, often the most important step in ML."
+    },
+    {
+      "id": "ml_basics_07",
+      "command": "Overfitting",
+      "syntax": "train_score >> test_score",
+      "description": "Model performs well on training data but poorly on unseen data",
+      "example": "High training accuracy, low test accuracy indicates overfitting",
+      "category": "Problem",
+      "explanation": "Overfitting occurs when a model learns noise and specific patterns in training data that don't generalize. Solved with regularization, more data, or simpler models."
+    },
+    {
+      "id": "ml_basics_08",
+      "command": "Underfitting",
+      "syntax": "train_score ≈ test_score (both low)",
+      "description": "Model is too simple to capture underlying patterns in data",
+      "example": "Linear model on complex nonlinear data",
+      "category": "Problem",
+      "explanation": "Underfitting happens when a model is too simple to capture the true relationship. Solutions include more complex models, more features, or less regularization."
+    },
+    {
+      "id": "ml_basics_09",
+      "command": "Bias-Variance Tradeoff",
+      "syntax": "Error = Bias² + Variance + Noise",
+      "description": "Balance between model simplicity (bias) and sensitivity to training data (variance)",
+      "example": "Complex models: low bias, high variance. Simple models: high bias, low variance.",
+      "category": "Concept",
+      "explanation": "The bias-variance tradeoff describes the tension between underfitting (high bias) and overfitting (high variance). Optimal models balance both."
+    },
+    {
+      "id": "ml_basics_10",
+      "command": "Classification",
+      "syntax": "y_pred = model.predict(X_test)",
+      "description": "Predicting discrete categories or labels for input data",
+      "example": "y_pred = logistic_regression.predict(X_test)",
+      "category": "Task Type",
+      "explanation": "Classification assigns inputs to predefined categories. Binary classification has two classes, multiclass has more. Examples: spam detection, image recognition."
+    },
+    {
+      "id": "ml_basics_11",
+      "command": "Regression",
+      "syntax": "y_pred = model.predict(X_test)",
+      "description": "Predicting continuous numerical values from input features",
+      "example": "price_pred = linear_reg.predict([[sqft, bedrooms]])",
+      "category": "Task Type",
+      "explanation": "Regression predicts continuous outcomes like prices, temperatures, or quantities. The model learns relationships between features and target values."
+    },
+    {
+      "id": "ml_basics_12",
+      "command": "Hyperparameters",
+      "syntax": "model = RandomForestClassifier(n_estimators=100, max_depth=10)",
+      "description": "Parameters set before training that control the learning process",
+      "example": "GridSearchCV(model, {'C': [0.1, 1, 10], 'kernel': ['rbf', 'linear']})",
+      "category": "Configuration",
+      "explanation": "Hyperparameters are configuration settings for ML algorithms, set before training. Tuning them optimizes model performance."
+    },
+    {
+      "id": "ml_basics_13",
+      "command": "Model Evaluation Metrics",
+      "syntax": "accuracy = accuracy_score(y_true, y_pred)",
+      "description": "Quantitative measures to assess model performance",
+      "example": "precision, recall, f1 = precision_recall_fscore_support(y_true, y_pred)",
+      "category": "Evaluation",
+      "explanation": "Metrics quantify how well a model performs. Common metrics include accuracy, precision, recall, F1-score for classification; MSE, MAE, R² for regression."
+    }
+  ]
+}

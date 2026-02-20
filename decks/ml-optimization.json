@@ -1,0 +1,121 @@
+{
+  "cards": [
+    {
+      "id": "ml_opt_01",
+      "command": "Loss Function",
+      "syntax": "loss = criterion(predictions, targets)",
+      "description": "Function measuring how far predictions are from true values",
+      "example": "loss = nn.CrossEntropyLoss()(logits, labels)",
+      "category": "Training",
+      "explanation": "Loss functions quantify model error. The optimizer minimizes this during training. Choice depends on task: classification, regression, etc."
+    },
+    {
+      "id": "ml_opt_02",
+      "command": "Cross-Entropy Loss",
+      "syntax": "nn.CrossEntropyLoss()",
+      "description": "Loss function for classification measuring difference between predicted and true distributions",
+      "example": "loss = F.cross_entropy(logits, targets)",
+      "category": "Loss",
+      "explanation": "Cross-entropy loss penalizes confident wrong predictions heavily. Combines log-softmax and negative log-likelihood. Standard for classification."
+    },
+    {
+      "id": "ml_opt_03",
+      "command": "MSE Loss",
+      "syntax": "nn.MSELoss()  # Mean Squared Error",
+      "description": "Loss function that squares differences between predictions and targets",
+      "example": "loss = F.mse_loss(predictions, targets)",
+      "category": "Loss",
+      "explanation": "MSE penalizes larger errors more heavily due to squaring. Sensitive to outliers. Common for regression tasks."
+    },
+    {
+      "id": "ml_opt_04",
+      "command": "Adam Optimizer",
+      "syntax": "torch.optim.Adam(model.parameters(), lr=0.001)",
+      "description": "Adaptive learning rate optimizer combining momentum and RMSprop",
+      "example": "optimizer = torch.optim.Adam(model.parameters(), lr=1e-4, betas=(0.9, 0.999))",
+      "category": "Optimizer",
+      "explanation": "Adam adapts learning rates per parameter using estimates of first and second moments. Often works well out of the box. Very popular choice."
+    },
+    {
+      "id": "ml_opt_05",
+      "command": "Learning Rate",
+      "syntax": "optimizer = torch.optim.SGD(params, lr=0.01)",
+      "description": "Hyperparameter controlling step size during gradient descent",
+      "example": "for g in optimizer.param_groups: g['lr'] = 0.001",
+      "category": "Hyperparameter",
+      "explanation": "Learning rate determines how much weights change per update. Too high causes instability, too low causes slow convergence. Critical hyperparameter."
+    },
+    {
+      "id": "ml_opt_06",
+      "command": "Learning Rate Scheduler",
+      "syntax": "scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=10)",
+      "description": "Strategy for adjusting learning rate during training",
+      "example": "scheduler.step()  # call after each epoch",
+      "category": "Training",
+      "explanation": "Schedulers decay learning rate during training. Common strategies: step decay, cosine annealing, warmup. Helps fine-tune near optimum."
+    },
+    {
+      "id": "ml_opt_07",
+      "command": "Regularization",
+      "syntax": "loss = criterion(pred, target) + lambda * reg_term",
+      "description": "Techniques to prevent overfitting by constraining model complexity",
+      "example": "loss += 0.01 * sum(p.pow(2).sum() for p in model.parameters())",
+      "category": "Training",
+      "explanation": "Regularization adds constraints or penalties to prevent overfitting. L1/L2 regularization, dropout, and early stopping are common methods."
+    },
+    {
+      "id": "ml_opt_08",
+      "command": "L2 Regularization",
+      "syntax": "optimizer = torch.optim.Adam(params, weight_decay=0.01)",
+      "description": "Penalizing large weights by adding squared magnitude to loss",
+      "example": "loss = criterion(pred, target) + 0.01 * ||w||²",
+      "category": "Regularization",
+      "explanation": "L2 regularization (weight decay) adds squared weight sum to loss, encouraging smaller weights. Prevents overfitting by reducing model complexity."
+    },
+    {
+      "id": "ml_opt_09",
+      "command": "Momentum",
+      "syntax": "torch.optim.SGD(params, lr=0.01, momentum=0.9)",
+      "description": "Accelerating gradient descent by accumulating velocity in consistent directions",
+      "example": "optimizer = torch.optim.SGD(model.parameters(), lr=0.01, momentum=0.9)",
+      "category": "Optimizer",
+      "explanation": "Momentum smooths gradients and accelerates convergence in consistent directions. Helps escape local minima and dampens oscillations."
+    },
+    {
+      "id": "ml_opt_10",
+      "command": "Gradient Clipping",
+      "syntax": "torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)",
+      "description": "Limiting gradient magnitude to prevent exploding gradients",
+      "example": "torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)",
+      "category": "Training",
+      "explanation": "Gradient clipping prevents exploding gradients by capping gradient norm. Essential for training RNNs and deep networks. Stabilizes training."
+    },
+    {
+      "id": "ml_opt_11",
+      "command": "Early Stopping",
+      "syntax": "if val_loss > best_loss: patience_counter++",
+      "description": "Stopping training when validation performance stops improving",
+      "example": "if patience_counter > patience: break  # stop training",
+      "category": "Training",
+      "explanation": "Early stopping halts training when validation loss stops improving, preventing overfitting. Requires monitoring validation set during training."
+    },
+    {
+      "id": "ml_opt_12",
+      "command": "Batch Size",
+      "syntax": "dataloader = DataLoader(dataset, batch_size=32)",
+      "description": "Number of samples processed before updating model weights",
+      "example": "for batch in DataLoader(data, batch_size=64): ...",
+      "category": "Hyperparameter",
+      "explanation": "Batch size affects gradient estimate quality, memory usage, and training speed. Larger batches: more stable gradients, more memory. Common: 16-256."
+    },
+    {
+      "id": "ml_opt_13",
+      "command": "Epoch",
+      "syntax": "for epoch in range(num_epochs): train_one_epoch()",
+      "description": "One complete pass through the entire training dataset",
+      "example": "for epoch in range(100): train(); validate()",
+      "category": "Training",
+      "explanation": "An epoch is one full iteration through training data. Training typically runs for many epochs until convergence. Each epoch contains multiple batches."
+    }
+  ]
+}

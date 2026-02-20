@@ -1,0 +1,43 @@
+{
+  "name": "ML Learning Library",
+  "description": "Comprehensive Machine Learning lessons from beginner to advanced",
+  "totalDecks": 5,
+  "totalCards": 65,
+  "decks": [
+    {
+      "filename": "ml-basics.json",
+      "name": "ML Fundamentals",
+      "description": "Core concepts: supervised learning, unsupervised learning, model training",
+      "cardCount": 13,
+      "difficulty": "beginner"
+    },
+    {
+      "filename": "ml-neural-networks.json",
+      "name": "Neural Networks",
+      "description": "Layers, activations, backpropagation, optimizers",
+      "cardCount": 13,
+      "difficulty": "intermediate"
+    },
+    {
+      "filename": "ml-deep-learning.json",
+      "name": "Deep Learning",
+      "description": "CNNs, RNNs, transformers, attention mechanisms",
+      "cardCount": 13,
+      "difficulty": "intermediate"
+    },
+    {
+      "filename": "ml-optimization.json",
+      "name": "Optimization & Training",
+      "description": "Loss functions, regularization, gradient descent variants",
+      "cardCount": 13,
+      "difficulty": "advanced"
+    },
+    {
+      "filename": "ml-nlp-cv.json",
+      "name": "NLP & Computer Vision",
+      "description": "Text processing, embeddings, image classification",
+      "cardCount": 13,
+      "difficulty": "advanced"
+    }
+  ]
+}

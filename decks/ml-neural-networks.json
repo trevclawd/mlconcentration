@@ -1,0 +1,121 @@
+{
+  "cards": [
+    {
+      "id": "ml_nn_01",
+      "command": "Neural Network",
+      "syntax": "nn.Sequential(nn.Linear(784, 128), nn.ReLU(), nn.Linear(128, 10))",
+      "description": "Computing system inspired by biological neural networks with interconnected nodes",
+      "example": "model = nn.Sequential(nn.Linear(784, 256), nn.ReLU(), nn.Linear(256, 10))",
+      "category": "Architecture",
+      "explanation": "Neural networks consist of layers of interconnected nodes (neurons) that process information. They learn by adjusting connection weights during training."
+    },
+    {
+      "id": "ml_nn_02",
+      "command": "Activation Function",
+      "syntax": "x = nn.ReLU()(x)  # or nn.Sigmoid(), nn.Tanh()",
+      "description": "Nonlinear function that determines neuron output and enables complex patterns",
+      "example": "output = torch.relu(x)  # ReLU activation",
+      "category": "Component",
+      "explanation": "Activation functions introduce nonlinearity into neural networks, allowing them to learn complex patterns. Common choices: ReLU, Sigmoid, Tanh, GELU."
+    },
+    {
+      "id": "ml_nn_03",
+      "command": "ReLU",
+      "syntax": "nn.ReLU()  # f(x) = max(0, x)",
+      "description": "Rectified Linear Unit: outputs input if positive, zero otherwise",
+      "example": "x = F.relu(x)  # zeros out negative values",
+      "category": "Activation",
+      "explanation": "ReLU is the most popular activation function. It's computationally efficient and helps mitigate vanishing gradients. Outputs max(0, x)."
+    },
+    {
+      "id": "ml_nn_04",
+      "command": "Backpropagation",
+      "syntax": "loss.backward()",
+      "description": "Algorithm for computing gradients by propagating errors backward through network",
+      "example": "loss.backward(); optimizer.step()",
+      "category": "Algorithm",
+      "explanation": "Backpropagation calculates gradients of the loss with respect to each weight using the chain rule. Essential for training neural networks."
+    },
+    {
+      "id": "ml_nn_05",
+      "command": "Feedforward Network",
+      "syntax": "nn.Sequential(layer1, layer2, layer3)",
+      "description": "Neural network where information flows in one direction from input to output",
+      "example": "model = nn.Sequential(nn.Linear(784, 128), nn.ReLU(), nn.Linear(128, 10))",
+      "category": "Architecture",
+      "explanation": "Feedforward networks (MLPs) have no cycles or loops. Data flows forward through layers. Simple but powerful for many tasks."
+    },
+    {
+      "id": "ml_nn_06",
+      "command": "Hidden Layer",
+      "syntax": "nn.Linear(input_size, hidden_size)",
+      "description": "Intermediate layer between input and output that learns representations",
+      "example": "hidden = nn.Linear(784, 256)(x)",
+      "category": "Architecture",
+      "explanation": "Hidden layers transform inputs into increasingly abstract representations. Deeper networks with more hidden layers can learn more complex patterns."
+    },
+    {
+      "id": "ml_nn_07",
+      "command": "Weight Initialization",
+      "syntax": "nn.init.xavier_uniform_(layer.weight)",
+      "description": "Setting initial values for network weights before training",
+      "example": "nn.init.kaiming_normal_(self.weight, mode='fan_out')",
+      "category": "Training",
+      "explanation": "Good initialization prevents vanishing/exploding gradients. Xavier/Glorot for tanh, He/Kaiming for ReLU. Critical for deep networks."
+    },
+    {
+      "id": "ml_nn_08",
+      "command": "Batch Normalization",
+      "syntax": "nn.BatchNorm1d(num_features)",
+      "description": "Normalizing layer inputs to stabilize and accelerate training",
+      "example": "x = nn.BatchNorm1d(256)(x)",
+      "category": "Layer",
+      "explanation": "BatchNorm normalizes activations across a batch, reducing internal covariate shift. Allows higher learning rates and faster convergence."
+    },
+    {
+      "id": "ml_nn_09",
+      "command": "Dropout",
+      "syntax": "nn.Dropout(p=0.5)",
+      "description": "Regularization technique that randomly zeros neurons during training",
+      "example": "x = nn.Dropout(0.5)(x)  # 50% of neurons dropped",
+      "category": "Regularization",
+      "explanation": "Dropout prevents overfitting by randomly setting neurons to zero during training. Forces network to learn robust features."
+    },
+    {
+      "id": "ml_nn_10",
+      "command": "Softmax",
+      "syntax": "nn.Softmax(dim=1)",
+      "description": "Function that converts logits to probability distribution over classes",
+      "example": "probs = F.softmax(logits, dim=1)  # sums to 1",
+      "category": "Activation",
+      "explanation": "Softmax converts raw scores (logits) into probabilities that sum to 1. Used in output layer for multi-class classification."
+    },
+    {
+      "id": "ml_nn_11",
+      "command": "Embedding Layer",
+      "syntax": "nn.Embedding(num_embeddings, embedding_dim)",
+      "description": "Layer that maps discrete indices to dense vectors",
+      "example": "embed = nn.Embedding(vocab_size, 256)",
+      "category": "Layer",
+      "explanation": "Embeddings learn dense vector representations for discrete items (words, items, entities). Capture semantic relationships."
+    },
+    {
+      "id": "ml_nn_12",
+      "command": "Gradient Descent",
+      "syntax": "optimizer = torch.optim.SGD(model.parameters(), lr=0.01)",
+      "description": "Optimization algorithm that iteratively adjusts weights to minimize loss",
+      "example": "optimizer.step()  # w = w - lr * gradient",
+      "category": "Optimization",
+      "explanation": "Gradient descent updates weights in the direction that reduces loss. Learning rate controls step size. Variants include SGD, Adam, RMSprop."
+    },
+    {
+      "id": "ml_nn_13",
+      "command": "Universal Approximation",
+      "syntax": "Theorem: NN with enough neurons can approximate any continuous function",
+      "description": "Theory that neural networks can represent any function with sufficient capacity",
+      "example": "A single hidden layer with enough neurons can approximate any continuous function",
+      "category": "Theory",
+      "explanation": "The universal approximation theorem proves neural networks can approximate any continuous function, explaining their versatility and power."
+    }
+  ]
+}

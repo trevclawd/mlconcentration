@@ -1,0 +1,121 @@
+{
+  "cards": [
+    {
+      "id": "ml_nlp_01",
+      "command": "Tokenization",
+      "syntax": "tokens = tokenizer.encode(text)",
+      "description": "Breaking text into smaller units (words, subwords, characters) for processing",
+      "example": "tokens = tokenizer('Hello world', return_tensors='pt')",
+      "category": "NLP",
+      "explanation": "Tokenization converts text into numerical tokens the model can process. Methods include word-level, subword (BPE, WordPiece), and character-level."
+    },
+    {
+      "id": "ml_nlp_02",
+      "command": "Word Embeddings",
+      "syntax": "embeddings = nn.Embedding(vocab_size, embedding_dim)",
+      "description": "Dense vector representations of words capturing semantic meaning",
+      "example": "word_vectors = embeddings(token_ids)  # [batch, seq_len, dim]",
+      "category": "NLP",
+      "explanation": "Word embeddings map words to dense vectors where similar words are close in space. Word2Vec, GloVe are pretrained options. Learned end-to-end in transformers."
+    },
+    {
+      "id": "ml_nlp_03",
+      "command": "BERT",
+      "syntax": "model = BertModel.from_pretrained('bert-base-uncased')",
+      "description": "Bidirectional transformer pretrained on masked language modeling",
+      "example": "outputs = bert(input_ids, attention_mask=mask)",
+      "category": "NLP",
+      "explanation": "BERT is a transformer pretrained to predict masked words using bidirectional context. Fine-tuned for classification, NER, QA. Foundation of modern NLP."
+    },
+    {
+      "id": "ml_nlp_04",
+      "command": "GPT",
+      "syntax": "model = GPT2LMHeadModel.from_pretrained('gpt2')",
+      "description": "Generative transformer trained to predict next token autoregressively",
+      "example": "output = model.generate(input_ids, max_length=100)",
+      "category": "NLP",
+      "explanation": "GPT is an autoregressive language model trained to predict next tokens. Used for text generation. GPT-3, GPT-4 are scaled-up versions."
+    },
+    {
+      "id": "ml_nlp_05",
+      "command": "Sequence-to-Sequence",
+      "syntax": "model = EncoderDecoderModel(encoder, decoder)",
+      "description": "Model architecture for mapping input sequences to output sequences",
+      "example": "output = model.generate(input_ids)  # translation, summarization",
+      "category": "NLP",
+      "explanation": "Seq2seq models have an encoder that processes input and decoder that generates output. Used for translation, summarization, question answering."
+    },
+    {
+      "id": "ml_nlp_06",
+      "command": "Fine-tuning",
+      "syntax": "model = AutoModel.from_pretrained('bert-base'); trainer.train()",
+      "description": "Adapting a pretrained model to a specific downstream task",
+      "example": "model.classifier = nn.Linear(768, num_classes); train()",
+      "category": "Training",
+      "explanation": "Fine-tuning takes a pretrained model and trains it further on task-specific data. Much faster and more effective than training from scratch."
+    },
+    {
+      "id": "ml_cv_01",
+      "command": "Image Classification",
+      "syntax": "logits = model(image)  # [batch, num_classes]",
+      "description": "Task of assigning a category label to an entire image",
+      "example": "pred = resnet(image).argmax(dim=1)",
+      "category": "Vision",
+      "explanation": "Image classification predicts a single label for an image. CNNs (ResNet, EfficientNet) and Vision Transformers are common architectures."
+    },
+    {
+      "id": "ml_cv_02",
+      "command": "Object Detection",
+      "syntax": "boxes, scores, classes = model(image)",
+      "description": "Finding and localizing multiple objects in an image with bounding boxes",
+      "example": "predictions = yolov8(image)  # boxes with class labels",
+      "category": "Vision",
+      "explanation": "Object detection outputs bounding boxes and class labels for multiple objects. Models include YOLO, Faster R-CNN, DETR."
+    },
+    {
+      "id": "ml_cv_03",
+      "command": "Semantic Segmentation",
+      "syntax": "masks = model(image)  # [batch, num_classes, H, W]",
+      "description": "Classifying each pixel in an image into categories",
+      "example": "segmentation_map = unet(image).argmax(dim=1)",
+      "category": "Vision",
+      "explanation": "Semantic segmentation produces a dense prediction where each pixel gets a class label. U-Net, DeepLab are common architectures."
+    },
+    {
+      "id": "ml_cv_04",
+      "command": "Transfer Learning",
+      "syntax": "backbone = resnet50(pretrained=True); backbone.fc = nn.Linear(2048, num_classes)",
+      "description": "Using knowledge from one task/domain to improve learning on another",
+      "example": "model = torchvision.models.resnet50(pretrained=True)",
+      "category": "Training",
+      "explanation": "Transfer learning leverages pretrained models on large datasets (ImageNet) for new tasks. Freezes early layers, fine-tunes later layers."
+    },
+    {
+      "id": "ml_cv_05",
+      "command": "Data Augmentation",
+      "syntax": "transform = transforms.Compose([transforms.RandomCrop(224), transforms.RandomHorizontalFlip()])",
+      "description": "Artificially expanding training data through transformations",
+      "example": "augmented = transform(image)  # random flips, crops, colors",
+      "category": "Training",
+      "explanation": "Data augmentation increases training diversity through random transformations. Prevents overfitting, improves generalization. Critical for vision."
+    },
+    {
+      "id": "ml_cv_06",
+      "command": "Vision Transformer",
+      "syntax": "model = vit_base_patch16_224(pretrained=True)",
+      "description": "Applying transformer architecture to images by splitting into patches",
+      "example": "output = vit(images)  # images split into 16x16 patches",
+      "category": "Vision",
+      "explanation": "ViT divides images into patches, embeds them, and processes with transformer. Achieves state-of-the-art on ImageNet. Less inductive bias than CNNs."
+    },
+    {
+      "id": "ml_cv_07",
+      "command": "ResNet",
+      "syntax": "model = torchvision.models.resnet50(pretrained=True)",
+      "description": "Deep CNN architecture using residual connections to train very deep networks",
+      "example": "features = resnet50(image)",
+      "category": "Architecture",
+      "explanation": "ResNet introduced skip connections enabling training of 100+ layer networks. ResNet-50, ResNet-101 are common backbones for many vision tasks."
+    }
+  ]
+}

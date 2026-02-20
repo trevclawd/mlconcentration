@@ -1,0 +1,121 @@
+{
+  "cards": [
+    {
+      "id": "ml_dl_01",
+      "command": "Convolutional Neural Network",
+      "syntax": "nn.Conv2d(in_channels, out_channels, kernel_size)",
+      "description": "Neural network designed for grid-like data such as images using convolution operations",
+      "example": "conv = nn.Conv2d(3, 64, kernel_size=3, padding=1)",
+      "category": "Architecture",
+      "explanation": "CNNs use convolutional layers to detect local patterns like edges, textures, and shapes. Translation invariant and parameter efficient for images."
+    },
+    {
+      "id": "ml_dl_02",
+      "command": "Pooling Layer",
+      "syntax": "nn.MaxPool2d(kernel_size=2)",
+      "description": "Layer that reduces spatial dimensions by combining nearby values",
+      "example": "x = nn.MaxPool2d(2)(x)  # halves height and width",
+      "category": "Layer",
+      "explanation": "Pooling reduces spatial dimensions, providing translation invariance and reducing computation. Max pooling takes the maximum value in each region."
+    },
+    {
+      "id": "ml_dl_03",
+      "command": "Recurrent Neural Network",
+      "syntax": "nn.RNN(input_size, hidden_size)",
+      "description": "Neural network designed for sequential data with feedback connections",
+      "example": "rnn = nn.RNN(input_size=256, hidden_size=512)",
+      "category": "Architecture",
+      "explanation": "RNNs process sequences by maintaining hidden state that captures history. Each output depends on current input and previous hidden state."
+    },
+    {
+      "id": "ml_dl_04",
+      "command": "LSTM",
+      "syntax": "nn.LSTM(input_size, hidden_size)",
+      "description": "Long Short-Term Memory: RNN with gates to control information flow",
+      "example": "lstm = nn.LSTM(256, 512, num_layers=2)",
+      "category": "Architecture",
+      "explanation": "LSTMs solve vanishing gradient problem with gating mechanisms (forget, input, output gates). Can learn long-range dependencies in sequences."
+    },
+    {
+      "id": "ml_dl_05",
+      "command": "GRU",
+      "syntax": "nn.GRU(input_size, hidden_size)",
+      "description": "Gated Recurrent Unit: Simplified LSTM with fewer parameters",
+      "example": "gru = nn.GRU(256, 512, num_layers=2)",
+      "category": "Architecture",
+      "explanation": "GRUs are simpler than LSTMs with two gates (reset and update) instead of three. Often perform similarly with fewer parameters and faster training."
+    },
+    {
+      "id": "ml_dl_06",
+      "command": "Attention Mechanism",
+      "syntax": "attn_weights = softmax(Q @ K.T / sqrt(d))",
+      "description": "Mechanism that allows model to focus on relevant parts of input",
+      "example": "attention = torch.softmax(Q @ K.transpose(-2,-1) / math.sqrt(dk), dim=-1)",
+      "category": "Mechanism",
+      "explanation": "Attention computes weighted sum of values based on query-key similarity. Allows models to dynamically focus on relevant parts of the input."
+    },
+    {
+      "id": "ml_dl_07",
+      "command": "Self-Attention",
+      "syntax": "Attention(Q, K, V) = softmax(QK^T / sqrt(d))V",
+      "description": "Attention where queries, keys, and values all come from same input",
+      "example": "x = self_attention(x)  # x is used for Q, K, and V",
+      "category": "Mechanism",
+      "explanation": "Self-attention lets each position attend to all positions in the sequence. Key innovation in transformers enabling parallel processing of sequences."
+    },
+    {
+      "id": "ml_dl_08",
+      "command": "Transformer",
+      "syntax": "nn.Transformer(d_model=512, nhead=8)",
+      "description": "Architecture based entirely on attention, without recurrence or convolution",
+      "example": "transformer = nn.Transformer(d_model=512, nhead=8, num_encoder_layers=6)",
+      "category": "Architecture",
+      "explanation": "Transformers use self-attention to process sequences in parallel. Revolutionary for NLP and now vision. Foundation of models like GPT, BERT."
+    },
+    {
+      "id": "ml_dl_09",
+      "command": "Multi-Head Attention",
+      "syntax": "nn.MultiheadAttention(embed_dim, num_heads)",
+      "description": "Running multiple attention operations in parallel for different representation subspaces",
+      "example": "mha = nn.MultiheadAttention(512, num_heads=8)",
+      "category": "Mechanism",
+      "explanation": "Multi-head attention runs several attention operations in parallel, allowing the model to capture different types of relationships simultaneously."
+    },
+    {
+      "id": "ml_dl_10",
+      "command": "Positional Encoding",
+      "syntax": "pos_enc = sinusoidal_position_encoding(seq_len, d_model)",
+      "description": "Adding position information to input embeddings since attention has no notion of order",
+      "example": "x = x + positional_encoding[:seq_len]",
+      "category": "Encoding",
+      "explanation": "Since attention is permutation invariant, positional encodings inject sequence order information. Sinusoidal or learned encodings are common."
+    },
+    {
+      "id": "ml_dl_11",
+      "command": "Residual Connection",
+      "syntax": "x = x + layer(x)  # or: out = x + self.layer(x)",
+      "description": "Adding input to output of a layer to enable gradient flow in deep networks",
+      "example": "x = x + self.attention(x)",
+      "category": "Architecture",
+      "explanation": "Residual connections (skip connections) add layer input to output. Enables training of very deep networks by providing gradient shortcuts."
+    },
+    {
+      "id": "ml_dl_12",
+      "command": "Layer Normalization",
+      "syntax": "nn.LayerNorm(normalized_shape)",
+      "description": "Normalizing across feature dimension for each sample independently",
+      "example": "x = nn.LayerNorm(512)(x)",
+      "category": "Normalization",
+      "explanation": "LayerNorm normalizes across features for each sample, unlike BatchNorm which normalizes across batch. Standard in transformers and RNNs."
+    },
+    {
+      "id": "ml_dl_13",
+      "command": "Autoencoder",
+      "syntax": "nn.Sequential(encoder, decoder)",
+      "description": "Neural network that learns compressed representations by reconstructing input",
+      "example": "z = encoder(x); x_recon = decoder(z); loss = MSE(x, x_recon)",
+      "category": "Architecture",
+      "explanation": "Autoencoders compress input into latent code then reconstruct. Used for dimensionality reduction, feature learning, and generative models."
+    }
+  ]
+}
